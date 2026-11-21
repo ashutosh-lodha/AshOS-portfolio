@@ -4,8 +4,7 @@ import { resolve } from 'node:path';
 const sha = (process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'local').slice(0, 7);
 const builtAt = new Date().toISOString();
 
-// The site is AshOS (index.html + os/). `npm run dev:brutal` still serves the
-// alternate Brutal design locally; it is not part of the production build.
+// The site is AshOS: index.html + os/, with shared data in src/shared/.
 export default defineConfig({
   base: '/',
   publicDir: resolve(__dirname, 'public'),

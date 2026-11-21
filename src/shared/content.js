@@ -158,11 +158,3 @@ export const projects = [
     shot: '/work/gateway.png',
   },
 ];
-
-export const timeline = [
-  { year: '2020', title: 'B.Tech CSE begins', where: 'UPES, Dehradun' },
-  { year: '2022', title: 'Summer Intern', where: 'GAIL (India) Ltd' },
-  { year: '2023', title: 'Python Developer Intern', where: 'HERE Technologies' },
-  { year: '2024', title: 'Research Analyst · Graduated (8.35)', where: 'Copperpod IP' },
-  { year: '2026', title: 'AWS SAA · DataDrop · UptimeHQ', where: 'Building' },
-];
