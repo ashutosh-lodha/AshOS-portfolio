@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AshOS — Ashutosh Lodha</title>
+  <meta name="description" content="AshOS: the portfolio of Ashutosh Lodha, software engineer, as a tiny operating system." />
+  <meta name="theme-color" content="#c9b6ff" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="module" src="/os/main.js"></script>
+</head>
+<body>
+  <div class="boot" aria-hidden="true"><pre class="boot__log"></pre></div>
+
+  <header class="menubar">
+    <button class="menubar__logo" data-open="about" aria-label="About AshOS">◐ AshOS</button>
+    <nav class="menubar__menu" aria-label="Apps">
+      <button data-open="about">About</button>
+      <button data-open="projects">Projects</button>
+      <button data-open="terminal">Terminal</button>
+      <button data-open="monitor">Monitor</button>
+      <button data-open="mail">Contact</button>
+    </nav>
+    <div class="menubar__right"><span class="menubar__status"><i></i>Open to work</span><span data-clock>--:--</span></div>
+  </header>
+
+  <main class="desktop" id="desktop" aria-label="Desktop">
+    <div class="wall" aria-hidden="true"><span>ASHUTOSH</span><span>LODHA</span></div>
+    <ul class="icons" data-icons></ul>
+    <div class="windows" data-windows></div>
+    <aside class="sticky" aria-label="Note">
+      <p><b>Hi! I’m Ashutosh.</b></p>
+      <p>Software engineer — cloud-native platforms &amp; distributed backends.</p>
+      <p>Open an icon, or try the <button data-open="terminal">terminal</button>.</p>
+    </aside>
+  </main>
+
+  <nav class="dock" aria-label="Dock" data-dock></nav>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

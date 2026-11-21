@@ -1,0 +1,17 @@
+{
+  "name": "ashutoshdev-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Portfolio of Ashutosh Lodha — ashutoshdev.online",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "stats": "node scripts/fetch-stats.mjs",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "dev:brutal": "vite brutal --config vite.config.js --port 5179 --strictPort"
+  },
+  "devDependencies": {
+    "vite": "6.4.6"
+  }
+}
