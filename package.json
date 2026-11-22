@@ -6,7 +6,6 @@
   "description": "Portfolio of Ashutosh Lodha — ashutoshdev.online",
   "scripts": {
     "dev": "vite --port 5173",
-    "stats": "node scripts/fetch-stats.mjs",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },

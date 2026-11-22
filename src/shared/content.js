@@ -1,7 +1,4 @@
 // Single source of truth for every design. Edit facts here once.
-import stats from './stats.json';
-
-export { stats };
 
 export const profile = {
   name: 'Ashutosh Lodha',
