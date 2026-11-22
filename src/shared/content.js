@@ -10,6 +10,7 @@ export const profile = {
   tagline: 'I build cloud-native platforms and distributed backends — and keep them running in production.',
   email: 'lodhaashutosh@gmail.com',
   location: 'India · IST (UTC+5:30)',
+  leetcode: '400+',
   status: 'Open to SDE, backend & platform roles — on-site, hybrid or remote',
   cert: {
     name: 'AWS Certified Solutions Architect – Associate',
@@ -91,7 +92,7 @@ export const chapters = [
   {
     id: 'gym', no: '06', name: 'Training', pose: 'lift',
     title: 'Reps, every single day.',
-    bubble: `${stats.leetcode.total} and counting 💪`,
+    bubble: '400+ and counting 💪',
     body: ['Data structures and algorithms are my daily workout — tracked on LeetCode and auto-synced to GitHub.'],
   },
   {

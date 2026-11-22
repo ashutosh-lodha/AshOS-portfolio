@@ -1,5 +1,5 @@
 import './style.css';
-import { profile, projects, links, stats, chapters } from '../src/shared/content.js';
+import { profile, projects, links, chapters } from '../src/shared/content.js';
 import { $, $$, copyButtons, buildStamp, reducedMotion } from '../src/shared/utils.js';
 
 const mobile = () => innerWidth < 760;
@@ -210,7 +210,7 @@ function monitorApp(el, win) {
     <h4>Network · live latency from your browser</h4>
     ${live.map((p) => `<div class="net" data-net="${p.id}"><div class="net__head"><span><i style="background:${p.color}"></i>${p.name}</span><b>—</b></div><canvas width="480" height="70"></canvas></div>`).join('')}
     <h4>Processes · LeetCode</h4>
-    <p class="total">400+ questions</p>`;
+    <p class="total">${profile.leetcode} questions</p>`;
   const series = Object.fromEntries(live.map((p) => [p.id, []]));
   const draw = (id, color) => {
     const c = $(`[data-net="${id}"] canvas`, el);
@@ -262,7 +262,7 @@ function terminalApp(el) {
     },
     skills: () => chapters.find((c) => c.id === 'cloud').tools.join(' · '),
     experience: () => '2024–25 Research Analyst @ Copperpod IP<br>2023 Python Intern @ HERE Technologies<br>2022 Summer Intern @ GAIL (India)<br>2020–24 B.Tech CSE (Cloud) @ UPES · 8.35',
-    leetcode: () => `${stats.leetcode.total} solved — easy ${stats.leetcode.easy} · medium ${stats.leetcode.medium} · hard ${stats.leetcode.hard}`,
+    leetcode: () => `${profile.leetcode} questions`,
     contact: () => `${profile.email}<br>${links.filter((l) => l.url.startsWith('http')).map((l) => `<a href="${l.url}" target="_blank" rel="noopener">${l.url.replace('https://', '')}</a>`).join('<br>')}`,
     neofetch: () => `<pre class="neo"><span class="c">   ▄▄▄▄▄▄   </span>  <b>ash</b>@<b>ashos</b>
 <span class="c">  █▀    ▀█  </span>  ----------------
@@ -271,7 +271,7 @@ function terminalApp(el) {
 <span class="c">   ▀▀▀▀▀▀   </span>  <b>Cert</b>: AWS SA — Associate
               <b>Shell</b>: Go, TypeScript, Python
               <b>Uptime</b>: ${liveProjects.map((p) => p.name).join(', ')}
-              <b>LeetCode</b>: ${stats.leetcode.total} solved</pre>`,
+              <b>LeetCode</b>: ${profile.leetcode} questions</pre>`,
     'sudo': (a) => (a === 'hire-me' ? (openApp('mail'), '[sudo] permission granted. opening Contact… 🎉') : 'sudo: try <b>sudo hire-me</b>'),
     clear: () => { out.innerHTML = ''; return null; },
   };
@@ -309,7 +309,7 @@ const lines = [
   `[  ok  ] mounting /home/ashutosh`,
   `[  ok  ] loading cloud drivers: aws, kubernetes, docker`,
   `[  ok  ] starting services: ${liveProjects.map((p) => p.id).join(', ')}`,
-  `[  ok  ] leetcode daemon: ${stats.leetcode.total} solved`,
+  `[  ok  ] leetcode daemon: ${profile.leetcode} questions`,
   `[  ok  ] ${buildStamp()}`,
   'welcome.',
 ];
