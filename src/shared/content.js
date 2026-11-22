@@ -78,7 +78,7 @@ export const chapters = [
     title: 'Up, up & certified.',
     bubble: 'Certified. Head in the cloud ☁️',
     body: ['I went deep on AWS — core services, high availability, networking, security and cost optimisation — and earned the AWS Certified Solutions Architect – Associate.'],
-    tools: ['AWS', 'Google Cloud', 'Kubernetes', 'Docker', 'Helm', 'Terraform', 'Cloudflare', 'Nginx', 'GitHub Actions', 'ArgoCD', 'Linux', 'Go', 'TypeScript', 'Node.js', 'Python', 'React', 'PostgreSQL', 'Redis', 'MySQL', 'MongoDB', 'Prometheus', 'Grafana'],
+    tools: ['AWS', 'Google Cloud', 'Kubernetes', 'Docker', 'Terraform', 'Cloudflare', 'Nginx', 'GitHub Actions', 'Linux', 'Go', 'TypeScript', 'Node.js', 'Python', 'React', 'PostgreSQL', 'Redis', 'MySQL', 'MongoDB', 'Prometheus', 'Grafana'],
   },
   {
     id: 'builds', no: '05', name: 'The builds', pose: 'point',
