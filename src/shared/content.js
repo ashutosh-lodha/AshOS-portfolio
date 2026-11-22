@@ -36,7 +36,7 @@ export const chapters = [
       'A software engineer who builds cloud-native platforms and distributed backends — and keeps them running in production.',
       'This page is my story. Scroll and I’ll walk you through it.',
     ],
-    chips: ['AWS Certified Solutions Architect', 'Shipped DataDrop & UptimeHQ', 'India · IST'],
+    chips: ['AWS Certified Solutions Architect', 'Shipped ArchBoard, UptimeHQ & DataDrop', 'India · IST'],
   },
   {
     id: 'roots', no: '01', name: 'Roots', pose: 'walk',
@@ -80,7 +80,7 @@ export const chapters = [
     title: 'Up, up & certified.',
     bubble: 'Certified. Head in the cloud ☁️',
     body: ['I went deep on AWS — core services, high availability, networking, security and cost optimisation — and earned the AWS Certified Solutions Architect – Associate.'],
-    tools: ['AWS', 'Kubernetes', 'Docker', 'Helm', 'Terraform', 'Cloudflare', 'Nginx', 'GitHub Actions', 'ArgoCD', 'Linux', 'Go', 'TypeScript', 'Node.js', 'Python', 'React', 'PostgreSQL', 'Redis', 'MySQL', 'MongoDB', 'Prometheus', 'Grafana'],
+    tools: ['AWS', 'Google Cloud', 'Kubernetes', 'Docker', 'Helm', 'Terraform', 'Cloudflare', 'Nginx', 'GitHub Actions', 'ArgoCD', 'Linux', 'Go', 'TypeScript', 'Node.js', 'Python', 'React', 'PostgreSQL', 'Redis', 'MySQL', 'MongoDB', 'Prometheus', 'Grafana'],
   },
   {
     id: 'builds', no: '05', name: 'The builds', pose: 'point',
@@ -104,7 +104,38 @@ export const chapters = [
 
 export const projects = [
   {
-    id: 'datadrop', no: '01', name: 'DataDrop', year: '2026', role: 'Founder & Engineer',
+    id: 'archboard', no: '01', name: 'ArchBoard', year: '2026', role: 'Design · Build · Operate',
+    color: '#f062a6',
+    lede: 'The board built for system design interviews.',
+    points: [
+      '1,193 searchable AWS, Azure, Google Cloud and generic components, with typed connections and nested groups.',
+      'Built-in capacity calculator: turns users and traffic into QPS, storage and bandwidth.',
+      'Offline-safe editing with Yjs and IndexedDB, synced to your account in PostgreSQL.',
+      'Terraform-managed on GCP, tested with Playwright and axe, deployed by CI with automatic API rollback.',
+    ],
+    stack: ['React', 'TypeScript', 'Express', 'PostgreSQL', 'Yjs', 'Terraform', 'GCP', 'Nginx'],
+    live: 'https://archboard.ashutoshdev.online',
+    source: 'https://github.com/ashutosh-lodha/ArchBoard',
+    shot: '/work/archboard-landing.jpg',
+  },
+  {
+    id: 'uptimehq', no: '02', name: 'UptimeHQ', year: '2026', role: 'Design · Build · Operate',
+    color: '#2fd17a',
+    lede: 'Know the moment a site goes down — self-hosted uptime monitoring for sites and APIs.',
+    points: [
+      'Separate API, worker and scheduler over a BullMQ queue — checks as often as every 5 seconds.',
+      'Classifies failures such as DNS, TLS, timeouts, 5xx and rejected credentials, then opens an incident and emails you.',
+      'Monitors protected APIs (Bearer, Basic, API key, OAuth2) with encrypted credentials and SSRF protection.',
+      'Response-time history per monitor, plus a test lab that simulates real outages to verify detection.',
+      '158 automated tests in CI, continuously deployed to GCP behind Nginx + HTTPS.',
+    ],
+    stack: ['TypeScript', 'Node.js', 'React', 'PostgreSQL', 'Redis · BullMQ', 'Docker', 'GCP', 'Nginx'],
+    live: 'https://uptimehq.ashutoshdev.online',
+    source: 'https://github.com/ashutosh-lodha/UptimeHQ',
+    shot: '/work/uptimehq-landing.jpg',
+  },
+  {
+    id: 'datadrop', no: '03', name: 'DataDrop', year: '2026', role: 'Founder & Engineer',
     color: '#7c6cff',
     lede: 'Privacy-first cloud storage, billed only for the gigabytes you keep.',
     points: [
@@ -118,21 +149,7 @@ export const projects = [
     shot: '/work/datadrop-hero.jpg',
   },
   {
-    id: 'uptimehq', no: '02', name: 'UptimeHQ', year: '2026', role: 'Design · Build · Operate',
-    color: '#2fd17a',
-    lede: 'Know the moment a site goes down — self-hosted uptime monitoring for sites and APIs.',
-    points: [
-      'Separate API, worker and scheduler over a BullMQ queue — checks as often as every 5 seconds.',
-      'Incident lifecycle with email alerts, SSRF protection and encrypted monitor credentials.',
-      '107 tests in CI, images on GHCR, continuously deployed behind Nginx + HTTPS.',
-    ],
-    stack: ['TypeScript', 'Node.js', 'PostgreSQL', 'Redis · BullMQ', 'Docker', 'Nginx'],
-    live: 'https://uptimehq.ashutoshdev.online',
-    source: 'https://github.com/ashutosh-lodha/UptimeHQ',
-    shot: '/work/uptimehq-landing.png',
-  },
-  {
-    id: 'idp', no: '03', name: 'Mini IDP', year: '2026', role: 'Platform engineering',
+    id: 'idp', no: '04', name: 'Mini IDP', year: '2026', role: 'Platform engineering',
     color: '#3aa0ff',
     lede: 'An internal developer platform: deploy any Docker image or GitHub repo to Kubernetes from one screen.',
     points: [
@@ -145,7 +162,7 @@ export const projects = [
     shot: '/work/idp-dashboard.png',
   },
   {
-    id: 'gate', no: '04', name: 'Rate Gate', year: '2026', role: 'Distributed systems',
+    id: 'gate', no: '05', name: 'Rate Gate', year: '2026', role: 'Distributed systems',
     color: '#ff8a3d',
     lede: 'A distributed API gateway with per-key rate limiting, async analytics and autoscaling.',
     points: [

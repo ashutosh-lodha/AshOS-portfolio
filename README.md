@@ -6,6 +6,16 @@
 
 My portfolio, built as a small desktop OS in the browser: draggable windows, a working terminal (`help`, `projects`, `neofetch`, `sudo hire-me` …), a live system monitor that pings my deployed projects, and one app per project. On phones it turns into a home-screen grid.
 
+## Projects
+
+| Project | What it is | Links |
+| --- | --- | --- |
+| **ArchBoard** | The board built for system design interviews | [Live](https://archboard.ashutoshdev.online) · [Source](https://github.com/ashutosh-lodha/ArchBoard) |
+| **UptimeHQ** | Uptime monitoring, incidents and alerts for sites and APIs | [Live](https://uptimehq.ashutoshdev.online) · [Source](https://github.com/ashutosh-lodha/UptimeHQ) |
+| **DataDrop** | Privacy-first, pay-per-GB cloud storage | [Live](https://datadrop.co.in) · [Source](https://github.com/ashutosh-lodha/datadrop-storage) |
+| **Mini IDP** | Internal developer platform for Kubernetes | [Source](https://github.com/ashutosh-lodha/idp-platform) |
+| **Rate Gate** | Distributed API gateway with rate limiting | [Source](https://github.com/ashutosh-lodha/api-gateway-rate-limiter) |
+
 ## Run locally
 
 ```bash

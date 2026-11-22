@@ -16,7 +16,7 @@ const I = {
   app: (c, t) => `<svg viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="38" rx="11" fill="${c}" stroke="#1b1530" stroke-width="3"/><text x="24" y="31" text-anchor="middle" font-family="Silkscreen, monospace" font-size="16" fill="#1b1530">${t}</text></svg>`,
   cert: '<svg viewBox="0 0 48 48"><path d="M24 4l17 10v20L24 44 7 34V14z" fill="#232f3e" stroke="#1b1530" stroke-width="3"/><text x="24" y="29" text-anchor="middle" font-family="Silkscreen, monospace" font-size="11" fill="#ffb547">AWS</text></svg>',
 };
-const short = { datadrop: 'DD', uptimehq: 'UP', idp: 'K8', gate: 'RG' };
+const short = { archboard: 'AB', datadrop: 'DD', uptimehq: 'UP', idp: 'K8', gate: 'RG' };
 
 /* ── Apps ─────────────────────────────────────────────────────── */
 const apps = {
@@ -30,7 +30,8 @@ const apps = {
 };
 projects.forEach((p) => { apps[p.id] = { title: `${p.name}.app`, icon: I.app(p.color, short[p.id]), w: 640, h: 600, render: (el) => projectApp(el, p) }; });
 
-const desktopIcons = ['about', 'projects', 'datadrop', 'uptimehq', 'terminal', 'monitor', 'cert', 'mail', 'trash'];
+const liveProjects = projects.filter((p) => p.live);
+const desktopIcons = ['about', 'projects', ...liveProjects.map((p) => p.id), 'terminal', 'monitor', 'cert', 'mail', 'trash'];
 const dockApps = ['about', 'projects', 'terminal', 'monitor', 'mail'];
 const label = (id) => ({ about: 'About.txt', projects: 'Projects', terminal: 'Terminal', monitor: 'Monitor', mail: 'Contact', cert: 'AWS cert', trash: 'Trash' }[id] || apps[id].title);
 
@@ -143,7 +144,7 @@ function aboutApp(el) {
 function projectsApp(el) {
   el.classList.add('folder');
   el.innerHTML = `<ul class="grid">${projects.map((p) => `<li><button class="icon icon--dark" data-open="${p.id}">${apps[p.id].icon}<span>${p.name}.app</span></button></li>`).join('')}</ul>
-    <p class="folder__foot">4 items · double-click to open</p>`;
+    <p class="folder__foot">${projects.length} items · click to open</p>`;
 }
 
 function projectApp(el, p) {
@@ -205,7 +206,7 @@ async function ping(url) {
 function monitorApp(el, win) {
   el.classList.add('doc', 'monitor');
   const L = stats.leetcode;
-  const live = projects.filter((p) => p.live);
+  const live = liveProjects;
   el.innerHTML = `
     <h4>Network · live latency from your browser</h4>
     ${live.map((p) => `<div class="net" data-net="${p.id}"><div class="net__head"><span><i style="background:${p.color}"></i>${p.name}</span><b>—</b></div><canvas width="480" height="70"></canvas></div>`).join('')}
@@ -254,12 +255,12 @@ function terminalApp(el) {
     help: () => 'commands: <b>whoami</b> <b>about</b> <b>projects</b> <b>open &lt;name&gt;</b> <b>skills</b> <b>experience</b> <b>leetcode</b> <b>contact</b> <b>neofetch</b> <b>clear</b> <b>sudo hire-me</b>',
     whoami: () => `${profile.name} — ${profile.role}. ${profile.tagline}`,
     about: () => { openApp('about'); return 'opening About.txt…'; },
-    ls: () => 'About.txt  Projects/  DataDrop.app  UptimeHQ.app  Mini IDP.app  Rate Gate.app  bugs.log',
+    ls: () => ['About.txt', 'Projects/', ...projects.map((p) => `${p.name}.app`), 'bugs.log'].join('  '),
     projects: () => projects.map((p) => `<b>${p.name.padEnd(10)}</b> ${p.lede}`).join('<br>'),
     open: (a) => {
       const q = (a || '').toLowerCase().replace(/\s|\.app/g, '');
       const hit = projects.find((p) => p.name.toLowerCase().replace(/\s/g, '').startsWith(q) || p.id.startsWith(q));
-      if (!q) return 'usage: open &lt;datadrop|uptimehq|idp|gate&gt;';
+      if (!q) return `usage: open &lt;${projects.map((p) => p.id).join('|')}&gt;`;
       if (!hit) return `open: ${a}: no such app`;
       openApp(hit.id); return `launching ${hit.name}.app…`;
     },
@@ -273,7 +274,7 @@ function terminalApp(el) {
 <span class="c">  █▄    ▄█  </span>  <b>Role</b>: Software Engineer
 <span class="c">   ▀▀▀▀▀▀   </span>  <b>Cert</b>: AWS SA — Associate
               <b>Shell</b>: Go, TypeScript, Python
-              <b>Uptime</b>: DataDrop, UptimeHQ
+              <b>Uptime</b>: ${liveProjects.map((p) => p.name).join(', ')}
               <b>LeetCode</b>: ${stats.leetcode.total} solved</pre>`,
     'sudo': (a) => (a === 'hire-me' ? (openApp('mail'), '[sudo] permission granted. opening Contact… 🎉') : 'sudo: try <b>sudo hire-me</b>'),
     clear: () => { out.innerHTML = ''; return null; },
@@ -311,7 +312,7 @@ const lines = [
   'AshOS 26.11 — booting',
   `[  ok  ] mounting /home/ashutosh`,
   `[  ok  ] loading cloud drivers: aws, kubernetes, docker`,
-  `[  ok  ] starting services: datadrop, uptimehq`,
+  `[  ok  ] starting services: ${liveProjects.map((p) => p.id).join(', ')}`,
   `[  ok  ] leetcode daemon: ${stats.leetcode.total} solved`,
   `[  ok  ] ${buildStamp()}`,
   'welcome.',
