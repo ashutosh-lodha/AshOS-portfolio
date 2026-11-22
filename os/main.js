@@ -205,16 +205,12 @@ async function ping(url) {
 
 function monitorApp(el, win) {
   el.classList.add('doc', 'monitor');
-  const L = stats.leetcode;
   const live = liveProjects;
   el.innerHTML = `
     <h4>Network · live latency from your browser</h4>
     ${live.map((p) => `<div class="net" data-net="${p.id}"><div class="net__head"><span><i style="background:${p.color}"></i>${p.name}</span><b>—</b></div><canvas width="480" height="70"></canvas></div>`).join('')}
     <h4>Processes · LeetCode</h4>
-    <div class="bars">
-      ${[['easy', L.easy, '#2fb36b'], ['medium', L.medium, '#ff9f0a'], ['hard', L.hard, '#e8332a']].map(([n, v, c]) => `<div class="bar"><span>${n}</span><i><b style="width:${(v / L.total) * 100}%;background:${c}"></b></i><em>${v}</em></div>`).join('')}
-      <p class="total">${L.total} solved · 200-day streak badge</p>
-    </div>`;
+    <p class="total">400+ questions</p>`;
   const series = Object.fromEntries(live.map((p) => [p.id, []]));
   const draw = (id, color) => {
     const c = $(`[data-net="${id}"] canvas`, el);

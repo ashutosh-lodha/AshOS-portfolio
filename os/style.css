@@ -126,10 +126,6 @@ a { color: inherit; }
 .net__head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 13px; margin-bottom: 4px; }
 .net__head i { display: inline-block; width: 10px; height: 10px; border: 2px solid var(--ink); border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
 .net canvas { width: 100%; height: 70px; border: 2.5px solid var(--ink); border-radius: 8px; background: #fff; display: block; }
-.bar { display: grid; grid-template-columns: 70px 1fr 44px; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; margin: 6px 0; }
-.bar i { height: 16px; border: 2.5px solid var(--ink); border-radius: 6px; overflow: hidden; background: #fff; }
-.bar b { display: block; height: 100%; }
-.bar em { font-style: normal; font-weight: 600; text-align: right; }
 .total { font-family: var(--mono); font-size: 12.5px; margin-top: 8px !important; }
 
 /* terminal */
